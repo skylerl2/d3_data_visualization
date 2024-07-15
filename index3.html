@@ -55,7 +55,7 @@ var tooltip = d3.append("svg")
     .text("I'm a circle!");
 
 //
-svg.select("#circleBasicTooltip")
+d3.select("#circleBasicTooltip")
   .on("mouseover", function(){return tooltip.style("visibility", "visible");})
   .on("mousemove", function(){return tooltip.style("top", (event.pageY+20)+"px").style("left",(event.pageX+20)+"px");})
   .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
