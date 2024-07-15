@@ -49,14 +49,13 @@ svg.append("g")
 .call(d3.axisBottom(x).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
 
 // create a tooltip
-var tooltip = d3.select("#my_dataviz")
-  .append("div")
+var tooltip = svg.append("div")
     .style("position", "absolute")
     .style("visibility", "hidden")
     .text("I'm a circle!");
 
 //
-d3.select("#circleBasicTooltip")
+svg.select("#circleBasicTooltip")
   .on("mouseover", function(){return tooltip.style("visibility", "visible");})
   .on("mousemove", function(){return tooltip.style("top", (event.pageY-800)+"px").style("left",(event.pageX-800)+"px");})
   .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
