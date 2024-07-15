@@ -2,7 +2,7 @@
 <script src='https://d3js.org/d3.v5.min.js'></script>
 <style> circle {fill: lightblue; stroke: black;} </style>
 <body onload='init()'>
-<svg width=300 height=300>
+<svg width=500 height=500>
 </svg>
 <script>
 async function init() {
@@ -29,8 +29,8 @@ data.forEach(function (d) {
 
 var svg = d3.select("svg")
 
-svg.attr("width", 300)
-.attr("height", 300)
+svg.attr("width", 500)
+.attr("height", 500)
 .append("g")
 .attr("transform", "translate(50,50)")
 .selectAll("dot")
