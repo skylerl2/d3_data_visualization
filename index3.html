@@ -49,16 +49,22 @@ svg.append("g")
 .call(d3.axisBottom(x).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
 
 // create a tooltip
-var tooltip = svg.append("div")
+var tooltip2 = d3.select("svg")
+  .append("div")
     .style("position", "absolute")
-    .style("visibility", "visible")
-    .text("I'm a circle!");
+    .style("visibility", "hidden")
+    .style("background-color", "white")
+    .style("border", "solid")
+    .style("border-width", "1px")
+    .style("border-radius", "5px")
+    .style("padding", "10px")
+    .html("<p>I'm a tooltip written in HTML</p><img src='https://github.com/holtzy/D3-graph-gallery/blob/master/img/section/ArcSmal.png?raw=true'></img><br>Fancy<br><span style='font-size: 40px;'>Isn't it?</span>");
 
-//
-svg.select("#circleBasicTooltip")
-  .on("mouseover", function(){return tooltip.style("visibility", "visible");})
-  .on("mousemove", function(){return tooltip.style("top", (event.pageY-800)+"px").style("left",(event.pageX-800)+"px");})
-  .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+
+d3.select("#circleCustomTooltip")
+  .on("mouseover", function(){return tooltip2.style("visibility", "visible");})
+  .on("mousemove", function(){return tooltip2.style("top", (event.pageY-10)+"px").style("left",(event.pageX-10)+"px");})
+  .on("mouseout", function(){return tooltip2.style("visibility", "hidden");});
 
 }
 </script>
