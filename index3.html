@@ -37,6 +37,7 @@ svg.attr("width", 500)
     .data(data)
     .enter()
     .append("circle")
+.attr("id", "circleBasicTooltip")
 .attr("cx", function (d) { return x(d.AverageCityMPG); } )
 .attr("cy", function (d) { return y(d.AverageHighwayMPG); } )
 .attr("r", function (d) { return (d.EngineCylinders); } );
