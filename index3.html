@@ -50,7 +50,7 @@ svg.append("g")
 .call(d3.axisBottom(x).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
 
 // create a tooltip
-var tooltip = d3.select("svg")
+var tooltip = d3.append("svg")
     .style("position", "absolute")
     .style("visibility", "hidden")
     .text("I'm a circle!");
