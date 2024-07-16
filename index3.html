@@ -4,6 +4,7 @@
 <body onload='init()'>
 <svg width=1000 height=1000>
 </svg>
+<div id="my_dataviz"></div>
 <script>
 async function init() {
 
@@ -50,7 +51,7 @@ svg.append("g")
 .call(d3.axisBottom(x).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
 
 // create a tooltip
-var tooltip = d3.append("svg")
+var tooltip = d3.select("#my_dataviz").append("div")
     .style("position", "absolute")
     .style("visibility", "hidden")
     .text("I'm a circle!");
