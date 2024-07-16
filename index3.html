@@ -59,7 +59,7 @@ var tooltip = d3.select("#my_dataviz").append("div")
 //
 d3.select("#circleBasicTooltip")
   .on("mouseover", function(){return tooltip.style("visibility", "visible");})
-  .on("mousemove", function(){return tooltip.style("top", (event.pageY+300)+"px").style("left",(event.pageX+300)+"px");})
+  .on("mousemove", function(){return tooltip.style("top", (event.pageY+100)+"px").style("left",(event.pageX+100)+"px");})
   .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
 
 }
