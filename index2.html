@@ -40,7 +40,7 @@ svg.attr("width", 300)
     .data(data)
     .enter()
     .append("circle") 
-.select(function(d) { return (d.Make = "Alfa Romeo") ? this : null; })
+.select(function(d) { return (d.AverageHighwayMPG = 40) ? this : null; })
 .attr("cx", function (d) { return x(d.AverageCityMPG); } )
 .attr("cy", function (d) { return y(d.AverageHighwayMPG); } )
 .attr("r", function (d) { return (d.EngineCylinders); } );
