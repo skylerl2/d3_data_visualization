@@ -43,7 +43,8 @@ svg.attr("width", 300)
 .select(function(d) { return (d.Make = "Ford") ? this : null; })
 .attr("cx", function (d) { return x(d.AverageCityMPG); } )
 .attr("cy", function (d) { return y(d.AverageHighwayMPG); } )
-.attr("r", function (d) { return (d.EngineCylinders); } );
+.attr("r", function (d) { return (d.EngineCylinders); } )
+.text("Average City vs. Highway MPG");
 
 svg.append("g")
 .attr("transform", "translate(50,50)")
