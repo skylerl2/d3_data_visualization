@@ -46,12 +46,10 @@ svg.attr("width", 300)
 .attr("r", function (d) { return (d.EngineCylinders); } );
 
 svg.append("text")
-        .attr("x", (width / 2))             
-        .attr("y", 0 - (margin.top / 2))
-        .attr("text-anchor", "middle")  
-        .style("font-size", "16px") 
-        .style("text-decoration", "underline")  
-        .text("Average City vs. Highway MPG");
+    .attr("x", w / 2 )
+    .attr("y", 0)
+    .style("text-anchor", "middle")
+    .text("Title of Diagram");
 
 svg.append("g")
 .attr("transform", "translate(50,50)")
