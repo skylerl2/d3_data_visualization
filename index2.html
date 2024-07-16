@@ -48,6 +48,27 @@ svg.append("g")
 .attr("transform", "translate(50,250)")
 .call(d3.axisBottom(x).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
 
+// Features of the annotation
+const annotations = [
+  {
+    note: {
+      label: "Here is the annotation label",
+      title: "Annotation title"
+    },
+    x: 100,
+    y: 100,
+    dy: 100,
+    dx: 100
+  }
+]
+
+// Add annotation to the chart
+const makeAnnotations = d3.annotation()
+  .annotations(annotations)
+d3.select("svg")
+  .append("g")
+  .call(makeAnnotations)
+
 }
 </script>
 </body>
