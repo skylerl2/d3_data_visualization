@@ -38,7 +38,7 @@ svg.attr("width", 300)
     .data(data.filter(function(d) { return d.AverageCityMPG > 130 }))
     .enter()
     .append("circle") 
-.select(function(d) { return (d.Make = "Ford") ? this : null; })
+.select(function(d) { return (d.AverageCityMPG > 130) ? this : null; })
 .attr("cx", function (d) { return x(d.AverageCityMPG); } )
 .attr("cy", function (d) { return y(d.AverageHighwayMPG); } )
 .attr("r", function (d) { return (d.EngineCylinders); } );
