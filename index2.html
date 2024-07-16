@@ -13,6 +13,8 @@ var data = await d3.csv("https://flunky.github.io/cars2017.csv");
 
 // format the data
 data.forEach(function (d) {
+	d.Make = d.Make;
+	d.Fuel = d.Fuel;
      d.AverageCityMPG = parseFloat(d.AverageCityMPG);
      d.AverageHighwayMPG = parseFloat(d.AverageHighwayMPG);
      d.EngineCylinders = parseFloat(d.EngineCylinders)+2;
