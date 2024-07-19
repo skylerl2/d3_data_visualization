@@ -76,7 +76,7 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
     .append("circle")
       .attr("class", function (d) { return "dot " + d.Make } )
       .attr("cx", function (d) { return x(d.AverageCityMPG); } )
-      .attr("cy", function (d) { return y(d.AvrageHighwayMPG); } )
+      .attr("cy", function (d) { return y(d.AverageHighwayMPG); } )
       .attr("r", 5)
       .style("fill", function (d) { return color(d.Make) } )
     .on("mouseover", highlight)
