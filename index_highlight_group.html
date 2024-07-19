@@ -61,13 +61,13 @@ data.forEach(function (d) {
       .transition()
       .duration(200)
       .style("fill", "lightgrey")
-      .attr("r", function (d) { return (d.EngineCylinders)-1; } );
+      .attr("r", function (d) { return (d.EngineCylinders); } );
 
     d3.selectAll("." + selected_make)
       .transition()
       .duration(200)
       .style("fill", color(selected_make))
-      .attr("r", function (d) { return (d.EngineCylinders)+1; } );
+      .attr("r", function (d) { return (d.EngineCylinders); } );
   }
 
   // Highlight the make that is hovered
@@ -85,7 +85,7 @@ data.forEach(function (d) {
     .data(data)
     .enter()
     .append("circle")
-      .attr("class", function (d) { return "dot " + d.Species } )
+      .attr("class", function (d) { return "dot " + d.Make } )
       .attr("cx", function (d) { return x(d.AverageCityMPG); } )
       .attr("cy", function (d) { return y(d.AverageHighwayMPG); } )
       .attr("r", function (d) { return (d.EngineCylinders); } );
