@@ -48,6 +48,13 @@ svg.append("g")
 .attr("cy", function (d) { return y(d.AverageHighwayMPG); } )
 .attr("r", function (d) { return (d.EngineCylinders); } );
 
+svg.append("g")
+.attr("transform", "translate(50,50)")
+.call(d3.axisLeft(y).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
+svg.append("g")
+.attr("transform", "translate(50,250)")
+.call(d3.axisBottom(x).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
+
 // create a tooltip
 var tooltip = d3.select("#my_dataviz")
   .append("div")
