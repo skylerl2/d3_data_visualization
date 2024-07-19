@@ -4,8 +4,8 @@
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
 
-<!-- Create a div where the graph will take place -->
-<div id="my_dataviz"></div>
+<svg width=1000 height=1000>
+</svg>
 
 <script>
 async function init() {
@@ -31,7 +31,7 @@ data.forEach(function (d) {
     .range([0, 200]);
 
 // Start by creating the svg area
-var svg = d3.select("#my_dataviz")
+var svg = d3.select("svg")
   .append("svg")
     .attr("width", 1000)
     .attr("height", 1000)
@@ -43,7 +43,7 @@ svg.append("g")
     .data(data)
     .enter()
     .append("circle")
-// .attr("id", "circleBasicTooltip")
+.attr("id", "circleBasicTooltip")
 .attr("cx", function (d) { return x(d.AverageCityMPG); } )
 .attr("cy", function (d) { return y(d.AverageHighwayMPG); } )
 .attr("r", function (d) { return (d.EngineCylinders); } );
@@ -55,18 +55,18 @@ svg.append("g")
 .attr("transform", "translate(50,250)")
 .call(d3.axisBottom(x).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
 
-// // create a tooltip
-// var tooltip = d3.select("#my_dataviz")
-//   .append("div")
-//     .style("position", "absolute")
-//     .style("visibility", "hidden")
-//     .text("I'm a circle!");
+// create a tooltip
+var tooltip = d3.select("#my_dataviz")
+  .append("div")
+    .style("position", "absolute")
+    .style("visibility", "hidden")
+    .text("I'm a circle!");
 
-// //
-// d3.select("#circleBasicTooltip")
-//   .on("mouseover", function(){return tooltip.style("visibility", "visible");})
-//   .on("mousemove", function(){return tooltip.style("top", (event.pageY+100)+"px").style("left",(event.pageX+100)+"px");})
-//   .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+//
+d3.select("#circleBasicTooltip")
+  .on("mouseover", function(){return tooltip.style("visibility", "visible");})
+  .on("mousemove", function(){return tooltip.style("top", (event.pageY+100)+"px").style("left",(event.pageX+100)+"px");})
+  .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
 
 }
 
