@@ -11,8 +11,8 @@
 
 // set the dimensions and margins of the graph
 var margin = {top: 50, right: 50, bottom: 50, left: 50},
-    width = 300 - margin.left - margin.right,
-    height = 300 - margin.top - margin.bottom;
+    width = 500 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
@@ -28,7 +28,7 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
 
   // Add X axis
   var x = d3.scaleLog()
-    .domain([10, 150])
+    .domain([10, 200])
     .range([0, 200]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
