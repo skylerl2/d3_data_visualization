@@ -10,9 +10,9 @@
 <script>
 
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+var margin = {top: 50, right: 50, bottom: 50, left: 50},
+    width = 300 - margin.left - margin.right,
+    height = 300 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
@@ -24,33 +24,33 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 //Read the data
-d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/iris.csv", function(data) {
+d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
 
   // Add X axis
   var x = d3.scaleLinear()
-    .domain([4, 8])
-    .range([ 0, width ]);
+    .domain([10, 150])
+    .range([0, 200]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x));
 
   // Add Y axis
   var y = d3.scaleLinear()
-    .domain([0, 9])
-    .range([ height, 0]);
+    .domain([10, 150])
+    .range([200, 0]);
   svg.append("g")
     .call(d3.axisLeft(y));
 
   // Color scale: give me a specie name, I return a color
   var color = d3.scaleOrdinal()
-    .domain(["setosa", "versicolor", "virginica" ])
+    .domain(["BMW", "Chevrolet", "Ford" ])
     .range([ "#440154ff", "#21908dff", "#fde725ff"])
 
 
   // Highlight the specie that is hovered
   var highlight = function(d){
 
-    selected_specie = d.Species
+    selected_specie = d.Make
 
     d3.selectAll(".dot")
       .transition()
@@ -80,11 +80,11 @@ d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/ir
     .data(data)
     .enter()
     .append("circle")
-      .attr("class", function (d) { return "dot " + d.Species } )
-      .attr("cx", function (d) { return x(d.Sepal_Length); } )
-      .attr("cy", function (d) { return y(d.Petal_Length); } )
+      .attr("class", function (d) { return "dot " + d.Make } )
+      .attr("cx", function (d) { return x(d.AverageCityMPG); } )
+      .attr("cy", function (d) { return y(d.AvrageHighwayMPG); } )
       .attr("r", 5)
-      .style("fill", function (d) { return color(d.Species) } )
+      .style("fill", function (d) { return color(d.Make) } )
     .on("mouseover", highlight)
     .on("mouseleave", doNotHighlight )
 
