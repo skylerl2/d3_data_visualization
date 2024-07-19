@@ -27,17 +27,7 @@ data.forEach(function (d) {
     .domain([10, 150])
     .range([0, 200]);
 
-// Define the div for the tooltip
-var div = d3.select("body").append("div")	
-    .attr("class", "tooltip")				
-    .style("opacity", 0);
-
 var svg = d3.select("svg")
-
-var tooltip = d3.append("svg")
-    .style("position", "absolute")
-    .style("visibility", "hidden")
-    .text("I'm a circle!");
 
 svg.attr("width", 1000)
 .attr("height", 1000)
@@ -47,13 +37,10 @@ svg.attr("width", 1000)
     .data(data)
     .enter()
     .append("circle")
+.attr("id", "circleBasicTooltip")
 .attr("cx", function (d) { return x(d.AverageCityMPG); } )
 .attr("cy", function (d) { return y(d.AverageHighwayMPG); } )
 .attr("r", function (d) { return (d.EngineCylinders); } );
-.on("mouseover", function(){return tooltip.style("visibility", "visible");})
-.on("mousemove", function(){return tooltip.style("top", (event.pageY+100)+"px").style("left",(event.pageX+100)+"px");})
-.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
-
 
 svg.append("g")
 .attr("transform", "translate(50,50)")
@@ -62,17 +49,17 @@ svg.append("g")
 .attr("transform", "translate(50,250)")
 .call(d3.axisBottom(x).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
 
-// // create a tooltip
-// var tooltip = d3.append("svg")
-//     .style("position", "absolute")
-//     .style("visibility", "hidden")
-//     .text("I'm a circle!");
+// create a tooltip
+var tooltip = d3.append("svg")
+    .style("position", "absolute")
+    .style("visibility", "hidden")
+    .text("I'm a circle!");
 
 //
-// d3.select("#circleBasicTooltip")
-//   .on("mouseover", function(){return tooltip.style("visibility", "visible");})
-//   .on("mousemove", function(){return tooltip.style("top", (event.pageY+100)+"px").style("left",(event.pageX+100)+"px");})
-//   .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+d3.select("#circleBasicTooltip")
+  .on("mouseover", function(){return tooltip.style("visibility", "visible");})
+  .on("mousemove", function(){return tooltip.style("top", (event.pageY+100)+"px").style("left",(event.pageX+100)+"px");})
+  .on("mouseout", function(){return tooltip.style("visibility", "hidden");});
 
 }
 </script>
