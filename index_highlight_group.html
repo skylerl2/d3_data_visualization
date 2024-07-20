@@ -63,7 +63,7 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
     d3.selectAll("." + selected_make)
       .transition()
       .duration(200)
-      .style("fill", color(selected_make))
+      .style("fill", function (d,i) { return color(i) })
       .attr("r", 7)
   }
 
@@ -96,7 +96,7 @@ svg.selectAll("mydots")
   .enter()
   .append("circle")
     .attr("cx", 860)
-    .attr("cy", function(d,i){ return 25 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+    .attr("cy", function(d,i){ return 15 + i*20}) // 100 is where the first dot appears. 25 is the distance between dots
     .attr("r", 5)
     .style("fill", function(d,i){ return color(i)})
 
@@ -106,7 +106,7 @@ svg.selectAll("mylabels")
   .enter()
   .append("text")
     .attr("x", 880)
-    .attr("y", function(d,i){ return 20 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+    .attr("y", function(d,i){ return 20 + i*20}) // 100 is where the first dot appears. 25 is the distance between dots
     .style("fill", function(d,i){ return color(i)})
     .text(function(d){ return d})
     .attr("text-anchor", "left")
