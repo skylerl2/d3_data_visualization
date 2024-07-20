@@ -12,8 +12,8 @@
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
   .append("svg")
-    .attr("width", 300)
-    .attr("height", 300)
+    .attr("width", 1000)
+    .attr("height", 1000)
   .append("g")
     .attr("transform", "translate(50,50)");
 
@@ -23,15 +23,15 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
   // Add X axis
   var x = d3.scaleLinear()
     .domain([10, 150])
-    .range([0, 200]);
+    .range([0, 800]);
   svg.append("g")
-    .attr("transform", "translate(0,200)")
+    .attr("transform", "translate(0,800)")
     .call(d3.axisBottom(x).tickValues([10,20,50,100,150]));
 
   // Add Y axis
   var y = d3.scaleLinear()
     .domain([10, 150])
-    .range([200, 0]);
+    .range([800, 0]);
   svg.append("g").attr("transform", "translate(0,0)")
     .call(d3.axisLeft(y).tickValues([10,20,50,100,150]));
 
@@ -87,9 +87,9 @@ svg.selectAll("mydots")
   .data(["BMW", "Chevrolet", "Ford"])
   .enter()
   .append("circle")
-    .attr("cx", 100)
-    .attr("cy", function(d,i){ return 100 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
-    .attr("r", 7)
+    .attr("cx", 900)
+    .attr("cy", function(d,i){ return 400 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+    .attr("r", 5)
     .style("fill", function(d){ return color(d)})
 
 // Add one dot in the legend for each name.
@@ -97,8 +97,8 @@ svg.selectAll("mylabels")
   .data(["BMW", "Chevrolet", "Ford"])
   .enter()
   .append("text")
-    .attr("x", 120)
-    .attr("y", function(d,i){ return 100 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+    .attr("x", 920)
+    .attr("y", function(d,i){ return 400 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
     .style("fill", function(d){ return color(d)})
     .text(function(d){ return d})
     .attr("text-anchor", "left")
