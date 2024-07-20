@@ -35,10 +35,20 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
   svg.append("g").attr("transform", "translate(0,0)")
     .call(d3.axisLeft(y).tickValues([10,20,50,100,150]));
 
-  // Color scale: give me a make name, I return a color
+  // create a list of keys
+  var keys = ["Acura", "Alfa Romeo", "Aston Martin", "Audi", "Bentley", "BMW", 
+              "Cadillac", "Chevrolet", "Chrysler", "Dodge", "Ferrari", "Fiat", 
+              "Ford", "Genesis", "GMC", "Honda", "Hyundai", "Infiniti", "Jaguar", 
+              "Jeep", "Kia", "Lamborghini", "Land Rover", "Lexus", "Lincoln", 
+              "Lotus", "Maserati", "Mazda", "McLaren Automotive", "Mercedes-Benz",
+              "MINI", "Mitsubishi", "Nissan", "Porsche", "Ram", "Rolls-Royce", 
+              "Roush Performance", "smart", "Subaru", "Tesla", "Toyota", 
+              "Volkswagen", "Volvo"]
+  
+  // Usually you have a color scale in your chart already
   var color = d3.scaleOrdinal()
-    .domain(["BMW", "Chevrolet", "Ford"])
-    .range([ "#440154ff", "#21908dff", "#fde725ff"])
+    .domain(keys)
+    .range(d3.interpolateTurbo[43]);
 
 
   // Highlight the make that is hovered
@@ -84,21 +94,21 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
 
 // Add one dot in the legend for each name.
 svg.selectAll("mydots")
-  .data(["BMW", "Chevrolet", "Ford"])
+  .data(keys)
   .enter()
   .append("circle")
-    .attr("cx", 900)
-    .attr("cy", function(d,i){ return 400 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+    .attr("cx", 860)
+    .attr("cy", function(d,i){ return 200 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
     .attr("r", 5)
     .style("fill", function(d){ return color(d)})
 
 // Add one dot in the legend for each name.
 svg.selectAll("mylabels")
-  .data(["BMW", "Chevrolet", "Ford"])
+  .data(keys)
   .enter()
   .append("text")
-    .attr("x", 920)
-    .attr("y", function(d,i){ return 400 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+    .attr("x", 880)
+    .attr("y", function(d,i){ return 200 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
     .style("fill", function(d){ return color(d)})
     .text(function(d){ return d})
     .attr("text-anchor", "left")
