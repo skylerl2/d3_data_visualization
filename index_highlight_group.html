@@ -120,6 +120,26 @@ svg.selectAll("mylabels")
     .attr("text-anchor", "left")
     .style("alignment-baseline", "middle")
 
+svg.append("text")
+    .attr("x", 500)
+    .attr("y", 50)
+    .style("text-anchor", "middle")
+    .text("Fuel Efficiency - City vs. Highway");
+
+svg.append("text")      // text label for the x axis
+        .attr("x", 450 )
+        .attr("y", 900 )
+        .style("text-anchor", "middle")
+        .text("City MPG");
+
+svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 25)
+        .attr("x", -450)
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Highway MPG");
+
 })
 
 </script>
