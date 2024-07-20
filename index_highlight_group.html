@@ -71,7 +71,7 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
     d3.selectAll("." + selected_make)
       .transition()
       .duration(200)
-      .style("fill", function (d) { return color(d) })
+      .style("fill", function (d) { return color(selected_make) })
       .attr("r", 7)
   }
 
