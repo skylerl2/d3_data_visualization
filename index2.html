@@ -86,6 +86,20 @@ svg.append("text")
     .style("text-anchor", "middle")
     .text("Fuel Efficiency - City vs. Highway");
 
+svg.append("text")      // text label for the x axis
+        .attr("x", 500 )
+        .attr("y", 950 )
+        .style("text-anchor", "middle")
+        .text("City MPG");
+
+svg.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", -50)
+        .attr("x", -500)
+        .attr("dy", "1em")
+        .style("text-anchor", "middle")
+        .text("Highway MPG");
+
 svg.append("g")
 .attr("transform", "translate(50,50)")
 .call(d3.axisLeft(y).tickValues([10,20,50,100,150]).tickFormat(d3.format("~s")));
@@ -97,8 +111,8 @@ svg.append("g")
 const annotations = [
   {
     note: {
-      label: "Here is the MPG of Ford cars",
-      title: "Ford efficiency"
+      label: "Here are the city and highway MPG of various Ford vehicles",
+      title: "Ford's fuel efficiency"
     },
     x: 75,
     y: 800,
