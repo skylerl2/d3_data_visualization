@@ -73,7 +73,7 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
       .transition()
       .duration(200)
       .style("fill", "lightgrey")
-      .attr("r", 5 )
+      .attr("r", 5)
   }
 
   // Add dots
@@ -86,7 +86,7 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
       .attr("cx", function (d) { return x(d.AverageCityMPG); } )
       .attr("cy", function (d) { return y(d.AverageHighwayMPG); } )
       .attr("r", 5)
-      .style("fill", function (d) { return color(d.Make) } )
+      .style("fill", function (d,i) { return color(i) } )
     .on("mouseover", highlight)
     .on("mouseleave", doNotHighlight )
 
@@ -96,9 +96,9 @@ svg.selectAll("mydots")
   .enter()
   .append("circle")
     .attr("cx", 860)
-    .attr("cy", function(d,i){ return 200 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+    .attr("cy", function(d,i){ return 25 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
     .attr("r", 5)
-    .style("fill", function(d){ return color(d)})
+    .style("fill", function(d,i){ return color(i)})
 
 // Add one dot in the legend for each name.
 svg.selectAll("mylabels")
@@ -106,8 +106,8 @@ svg.selectAll("mylabels")
   .enter()
   .append("text")
     .attr("x", 880)
-    .attr("y", function(d,i){ return 200 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
-    .style("fill", function(d){ return color(d)})
+    .attr("y", function(d,i){ return 20 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+    .style("fill", function(d,i){ return color(i)})
     .text(function(d){ return d})
     .attr("text-anchor", "left")
     .style("alignment-baseline", "middle")
