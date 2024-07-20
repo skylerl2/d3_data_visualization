@@ -4,7 +4,7 @@
 <style> circle {fill: lightblue; stroke: black;} </style>
 <select id="selectButton"></select>
 <body onload='init()'>
-<svg width=300 height=300>
+<svg width=1100 height=1000>
 </svg>
 <script>
 async function init() {
@@ -30,6 +30,8 @@ var selectedOption = allGroup[0];
     d3.select("#selectButton").on("change", function(d) {
         // recover the option that has been chosen
         var selectedOption = d3.select(this).property("value")
+	// run the updateChart function with this selected option
+        update(selectedOption)
     })
 
 // format the data
@@ -42,19 +44,19 @@ data.forEach(function (d) {
 });
 
 // Add Y axis
-  var y = d3.scaleLog()
+  var y = d3.scaleLinear()
     .domain([10, 150])
-    .range([200, 0]);
+    .range([800, 0]);
 
   // Add X axis
-  var x = d3.scaleLog()
+  var x = d3.scaleLinear()
     .domain([10, 150])
-    .range([0, 200]);
+    .range([0, 800]);
 
 var svg = d3.select("svg")
 
-svg.attr("width", 300)
-.attr("height", 300)
+svg.attr("width", 1000)
+.attr("height", 1000)
 .append("g")
 .attr("transform", "translate(50,50)")
 .selectAll("dot")
@@ -66,6 +68,19 @@ svg.attr("width", 300)
 .attr("cy", function (d) { return y(d.AverageHighwayMPG); } )
 .attr("r", function (d) { return (d.EngineCylinders); } );
 
+// A function that update the chart
+function update(selectedGroup) {
+
+// Give these new data to update line
+svg
+  .select(function(d) { return (d.Make == selectedOption) ? this : null; })
+  .transition()
+  .duration(1000)
+  .attr("cx", function (d) { return x(d.AverageCityMPG); } )
+  .attr("cy", function (d) { return y(d.AverageHighwayMPG); } )
+  )
+}
+
 svg.append("text")
     .attr("x", 500)
     .attr("y", 50)
@@ -74,10 +89,10 @@ svg.append("text")
 
 svg.append("g")
 .attr("transform", "translate(50,50)")
-.call(d3.axisLeft(y).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
+.call(d3.axisLeft(y).tickValues([10,20,50,100,150]).tickFormat(d3.format("~s")));
 svg.append("g")
-.attr("transform", "translate(50,250)")
-.call(d3.axisBottom(x).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
+.attr("transform", "translate(50,950)")
+.call(d3.axisBottom(x).tickValues([10,20,50,100,150]).tickFormat(d3.format("~s")));
 
 // Features of the annotation
 const annotations = [
@@ -86,8 +101,8 @@ const annotations = [
       label: "Here is the MPG of Ford cars",
       title: "Ford efficiency"
     },
-    x: 100,
-    y: 100,
+    x: 300,
+    y: 700,
     dy: 100,
     dx: 100
   }
