@@ -83,7 +83,7 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
     .on("mouseleave", doNotHighlight )
 
 // Add one dot in the legend for each name.
-Svg.selectAll("mydots")
+svg.selectAll("mydots")
   .data(["BMW", "Chevrolet", "Ford"])
   .enter()
   .append("circle")
@@ -93,7 +93,7 @@ Svg.selectAll("mydots")
     .style("fill", function(d){ return color(d)})
 
 // Add one dot in the legend for each name.
-Svg.selectAll("mylabels")
+svg.selectAll("mylabels")
   .data(["BMW", "Chevrolet", "Ford"])
   .enter()
   .append("text")
