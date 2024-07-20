@@ -25,14 +25,6 @@ d3.select("#selectButton")
 .attr("value", function (d) { return d; }) // corresponding value returned by the button
 
 var selectedOption = allGroup[0];
-	
-// When the button is changed, run the updateChart function
-    d3.select("#selectButton").on("change", function(d) {
-        // recover the option that has been chosen
-        var selectedOption = d3.select(this).property("value")
-	// run the updateChart function with this selected option
-        update(selectedOption)
-    })
 
 // format the data
 data.forEach(function (d) {
@@ -80,6 +72,14 @@ svg
   .attr("cy", function (d) { return y(d.AverageHighwayMPG); } )
 }
 
+// When the button is changed, run the updateChart function
+    d3.select("#selectButton").on("change", function(d) {
+        // recover the option that has been chosen
+        var selectedOption = d3.select(this).property("value")
+	// run the updateChart function with this selected option
+        update(selectedOption)
+    })
+
 svg.append("text")
     .attr("x", 500)
     .attr("y", 50)
@@ -88,14 +88,14 @@ svg.append("text")
 
 svg.append("text")      // text label for the x axis
         .attr("x", 500 )
-        .attr("y", 950 )
+        .attr("y", 900 )
         .style("text-anchor", "middle")
         .text("City MPG");
 
 svg.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", -50)
-        .attr("x", -500)
+        .attr("y", 400)
+        .attr("x", 50)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .text("Highway MPG");
