@@ -45,8 +45,8 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
               "Roush Performance", "smart", "Subaru", "Tesla", "Toyota", 
               "Volkswagen", "Volvo"]
   
-  var color = d3.scaleLinear().domain(keys)
-    .range(["red", "blue"])
+  var color = d3.scaleSequential().domain(keys)
+  .interpolator(d3.interpolateViridis);
 
 
   // Highlight the make that is hovered
