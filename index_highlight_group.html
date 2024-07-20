@@ -46,9 +46,7 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
               "Volkswagen", "Volvo"]
   
   // Usually you have a color scale in your chart already
-  var color = d3.scaleOrdinal()
-    .domain(keys)
-    .range(d3.schemePaired);
+  var color = d3.scaleOrdinal(d3.schemePaired);
 
 
   // Highlight the make that is hovered
