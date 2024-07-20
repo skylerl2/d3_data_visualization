@@ -26,14 +26,14 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
     .range([0, 200]);
   svg.append("g")
     .attr("transform", "translate(0,200)")
-    .call(d3.axisBottom(x).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
+    .call(d3.axisBottom(x).tickValues([10,20,50,100]));
 
   // Add Y axis
   var y = d3.scaleLog()
     .domain([10, 150])
     .range([200, 0]);
   svg.append("g").attr("transform", "translate(0,0)")
-    .call(d3.axisLeft(y).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
+    .call(d3.axisLeft(y).tickValues([10,20,50,100]));
 
   // Color scale: give me a specie name, I return a color
   var color = d3.scaleOrdinal()
