@@ -63,13 +63,13 @@ svg.attr("width", 1000)
 // A function that update the chart
 function update(selectedGroup) {
 
-// Give these new data to update line
-svg
-  .select(function(d) { return (d.Make == selectedOption) ? this : null; })
+// Give these new data to update chart
+svg.select(function(d) { return (d.Make == selectedGroup) ? this : null; })
   .transition()
   .duration(1000)
   .attr("cx", function (d) { return x(d.AverageCityMPG); } )
   .attr("cy", function (d) { return y(d.AverageHighwayMPG); } )
+  .attr("r", function (d) { return (d.EngineCylinders); } );
 }
 
 // When the button is changed, run the updateChart function
@@ -93,9 +93,9 @@ svg.append("text")      // text label for the x axis
         .text("City MPG");
 
 svg.append("text")
-        // .attr("transform", "rotate(-90)")
+        .attr("transform", "rotate(-90)")
         .attr("y", 400)
-        .attr("x", 50)
+        .attr("x", 25)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .text("Highway MPG");
