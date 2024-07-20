@@ -25,7 +25,7 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
     .domain([10, 150])
     .range([0, 200]);
   svg.append("g")
-    .attr("transform", "translate(0,50)")
+    .attr("transform", "translate(0,0)")
     .call(d3.axisBottom(x));
 
   // Add Y axis
