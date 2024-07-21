@@ -18,7 +18,7 @@ var svg = d3.select("#my_dataviz")
     .attr("transform", "translate(50,50)");
 
 //Read the data
-d3.csv("https://github.com/skylerl2/d3_data/blob/main/cars2017_top_10_makes.csv", function(data) {
+d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
 
   // Add X axis
   var x = d3.scaleLinear()
@@ -36,26 +36,15 @@ d3.csv("https://github.com/skylerl2/d3_data/blob/main/cars2017_top_10_makes.csv"
     .call(d3.axisLeft(y).tickValues([0,25,50,75,100,125,150]));
 
   // create a list of makes
-  var makes = ["Acura", "Alfa Romeo", "Aston Martin", "Audi", "Bentley", "BMW", 
-               "Cadillac", "Chevrolet", "Chrysler", "Dodge", "Ferrari", "Fiat", 
-               "Ford", "Genesis", "GMC", "Honda", "Hyundai", "Infiniti", "Jaguar", 
-               "Jeep", "Kia", "Lamborghini", "Land Rover", "Lexus", "Lincoln", 
-               "Lotus", "Maserati", "Mazda", "McLaren Automotive", "Mercedes-Benz",
-               "MINI", "Mitsubishi", "Nissan", "Porsche", "Ram", "Rolls-Royce", 
-               "Roush Performance", "smart", "Subaru", "Tesla", "Toyota", 
-               "Volkswagen", "Volvo"]
+  var makes = ["Audi", "BMW", "Cadillac", "Chevrolet", "Dodge", 
+               "Ford", "Jeep", "Lexus", "Mercedes-Benz", "Nissan"]
+
+  data.filter(function(d,i){ return makes.indexOf(d.Make) >= 0 })
 
   // create a color mapping
   var color = d3.scaleOrdinal().domain(makes)
-  .range(["antiquewhite", "aquamarine", "azure", "bisque", "blue", "blueviolet",
-         "brown", "burlywood", "cadetblue", "chartreuse", "chocolate", "coral",
-         "cornflowerblue", "gold", "green", "cyan", "darkgoldenrod",
-         "darkgray", "darkgreen", "darkkhaki", "darkmagenta", "darkolivegreen",
-         "darkorange", "darkorchid", "darkred", "darksalmon", "darkseagreen",
-         "darkslateblue", "darkslategray", "darkturquoise", "darkviolet",
-         "deeppink", "yellow", "deepskyblue", "black", "antiquewhite",
-         "aquamarine", "bisque", "grey", "brown", "slateblue", "indianred",
-         "orange"]);
+  .range(["gray", "deepskyblue", "red", "green", "maroon", 
+          "darkblue", "olivegreen", "darkgray", "navy", "brown"]);
 
 
   // Highlight the make that is hovered
