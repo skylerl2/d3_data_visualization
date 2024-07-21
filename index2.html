@@ -64,7 +64,7 @@ svg.attr("width", 1000)
 function update(selectedGroup) {
 
 // Create new data with the selection?
-var dataFilter = data.map(function(d){return (d.Make == selectedGroup) ? this : null; } })
+var dataFilter = data.map(function(d){return (d.Make == selectedGroup) ? this : null; })
 	
 // Give these new data to update chart
 svg.datum(dataFilter)
