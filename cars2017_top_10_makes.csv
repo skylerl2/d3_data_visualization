@@ -1,3 +1,5 @@
+Access-Control-Allow-Origin: https://github.com
+
 Make,Fuel,EngineCylinders,AverageHighwayMPG,AverageCityMPG
 Audi,Gasoline,4,30,23
 Audi,Gasoline,6,27,19
