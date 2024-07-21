@@ -45,7 +45,7 @@ data.forEach(function (d) {
 
 var svg = d3.select("svg")
 
-var selectedOption = allGroup[0];
+var selectedOption = d3.select(this).property("value");
 
 svg.attr("width", 1000)
 .attr("height", 1000)
@@ -88,20 +88,20 @@ svg.selectAll("dot")
 
 svg.append("text")
     .attr("x", 400)
-    .attr("y", 0)
+    .attr("y", 25)
     .style("text-anchor", "middle")
     .text("Fuel Efficiency - City vs. Highway");
 
 svg.append("text")      // text label for the x axis
         .attr("x", 400 )
-        .attr("y", 850 )
+        .attr("y", 900 )
         .style("text-anchor", "middle")
         .text("City MPG");
 
 svg.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", -50)
-        .attr("x", -400)
+        .attr("x", -425)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .text("Highway MPG");
