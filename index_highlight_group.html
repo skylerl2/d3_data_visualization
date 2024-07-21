@@ -46,7 +46,7 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
 
   // create a color mapping
   var color = d3.scaleOrdinal().domain(makes)
-  .range(["darkorange", "deepskyblue", "red", "darkgreen", "maroon", 
+  .range(["black", "deepskyblue", "red", "darkgreen", "maroon", 
           "blue", "goldenrod", "blueviolet", "lime", "fuchsia"]);
 
 
@@ -134,22 +134,22 @@ svg.append("text")      // Y axis label
         .text("Highway MPG");
 
 svg.append("text")      // title
-    .attr("x", 1000)
-    .attr("y", 500)
+    .attr("x", 6000)
+    .attr("y", 460)
     .style("text-anchor", "left")
     .text("Hover over the chart to");
 
 svg.append("text")      // title
-    .attr("x", 1000)
-    .attr("y", 520)
+    .attr("x", 6000)
+    .attr("y", 480)
     .style("text-anchor", "left")
     .text("discover the city and highway");
 
 svg.append("text")      // title
-    .attr("x", 1000)
-    .attr("y", 540)
+    .attr("x", 6000)
+    .attr("y", 500)
     .style("text-anchor", "left")
-    .text("MPG of different brands");
+    .text("MPG of different brands!");
 
 // // Features of the annotation
 // const annotations = [
