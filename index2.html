@@ -10,7 +10,7 @@
 async function init() {
 
 	//Read the data
-var data = await d3.csv("https://flunky.github.io/cars2017.csv");
+var data = await d3.csv("https://github.com/skylerl2/d3_data_visualization/blob/main/cars2017_top_10_makes.csv");
 
 // List of groups (here I have one group per column)
 var allGroup = ["Ford", "BMW"]
@@ -87,13 +87,13 @@ svg.selectAll("dot")
     })
 
 svg.append("text")
-    .attr("x", 400)
+    .attr("x", 450)
     .attr("y", 25)
     .style("text-anchor", "middle")
     .text("Fuel Efficiency - City vs. Highway");
 
 svg.append("text")      // text label for the x axis
-        .attr("x", 400 )
+        .attr("x", 450 )
         .attr("y", 900 )
         .style("text-anchor", "middle")
         .text("City MPG");
@@ -101,7 +101,7 @@ svg.append("text")      // text label for the x axis
 svg.append("text")
         .attr("transform", "rotate(-90)")
         .attr("y", -50)
-        .attr("x", -425)
+        .attr("x", -400)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .text("Highway MPG");
