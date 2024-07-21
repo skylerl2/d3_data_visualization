@@ -24,8 +24,6 @@ d3.select("#selectButton")
 .text(function (d) { return d; }) // text showed in the menu
 .attr("value", function (d) { return d; }) // corresponding value returned by the button
 
-var selectedOption = allGroup[0];
-
 // format the data
 data.forEach(function (d) {
 	d.Make = d.Make;
@@ -46,6 +44,8 @@ data.forEach(function (d) {
     .range([0, 800]);
 
 var svg = d3.select("svg")
+
+var selectedOption = allGroup[0];
 
 svg.attr("width", 1000)
 .attr("height", 1000)
@@ -81,7 +81,7 @@ svg.select(function(d) { return (d.Make == selectedGroup) ? this : null; })
     })
 
 svg.append("text")
-    .attr("x", 500)
+    .attr("x", 450)
     .attr("y", 50)
     .style("text-anchor", "middle")
     .text("Fuel Efficiency - City vs. Highway");
@@ -94,7 +94,7 @@ svg.append("text")      // text label for the x axis
 
 svg.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", 50)
+        .attr("y", -50)
         .attr("x", -450)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
