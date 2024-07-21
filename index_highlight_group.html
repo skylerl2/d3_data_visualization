@@ -15,7 +15,7 @@ var svg = d3.select("#my_dataviz")
     .attr("width", 1200)
     .attr("height", 1200)
   .append("g")
-    .attr("transform", "translate(100,100)");
+    .attr("transform", "translate(50,50)");
 
 //Read the data
 d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
@@ -121,8 +121,8 @@ svg.selectAll("mylabels")
     .style("alignment-baseline", "middle")
 
 svg.append("text")
-    .attr("x", 500)
-    .attr("y", 50)
+    .attr("x", 450)
+    .attr("y", 0)
     .style("text-anchor", "middle")
     .text("Fuel Efficiency - City vs. Highway");
 
@@ -134,7 +134,7 @@ svg.append("text")      // text label for the x axis
 
 svg.append("text")
         .attr("transform", "rotate(-90)")
-        .attr("y", 25)
+        .attr("y", -50)
         .attr("x", -450)
         .attr("dy", "1em")
         .style("text-anchor", "middle")
