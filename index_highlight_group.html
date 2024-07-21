@@ -4,6 +4,9 @@
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
 
+<!-- Load annotations -->
+<script src="https://rawgit.com/susielu/d3-annotation/master/d3-annotation.min.js"></script>
+
 <!-- Create a div where the graph will take place -->
 <div id="my_dataviz"></div>
 
@@ -43,7 +46,7 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
 
   // create a color mapping
   var color = d3.scaleOrdinal().domain(makes)
-  .range(["black", "deepskyblue", "red", "darkgreen", "maroon", 
+  .range(["darkorange", "deepskyblue", "red", "darkgreen", "maroon", 
           "blue", "goldenrod", "blueviolet", "lime", "fuchsia"]);
 
 
@@ -129,6 +132,44 @@ svg.append("text")      // Y axis label
         .attr("dy", "1em")
         .style("text-anchor", "middle")
         .text("Highway MPG");
+
+svg.append("text")      // title
+    .attr("x", 1000)
+    .attr("y", 500)
+    .style("text-anchor", "left")
+    .text("Hover over the chart to");
+
+svg.append("text")      // title
+    .attr("x", 1000)
+    .attr("y", 520)
+    .style("text-anchor", "left")
+    .text("discover the city and highway");
+
+svg.append("text")      // title
+    .attr("x", 1000)
+    .attr("y", 540)
+    .style("text-anchor", "left")
+    .text("MPG of different brands");
+
+// // Features of the annotation
+// const annotations = [
+//   {
+//     note: {
+//       label: "Here are the city and highway MPG of various BMW vehicles",
+//       title: "BMW's fuel efficiency"
+//     },
+//     x: 1000,
+//     y: 500,
+//     dy: 0,
+//     dx: 0
+//   }
+// ]
+
+// // Add annotation to the chart
+// const makeAnnotations = d3.annotation()
+//   .annotations(annotations)
+// svg.append("g")
+//   .call(makeAnnotations)
 
 })
 
