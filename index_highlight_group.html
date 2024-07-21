@@ -12,10 +12,10 @@
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
   .append("svg")
-    .attr("width", 1100)
-    .attr("height", 1000)
+    .attr("width", 1200)
+    .attr("height", 1200)
   .append("g")
-    .attr("transform", "translate(50,50)");
+    .attr("transform", "translate(100,100)");
 
 //Read the data
 d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
@@ -103,7 +103,7 @@ svg.selectAll("mydots")
   .data(makes)
   .enter()
   .append("circle")
-    .attr("cx", 860)
+    .attr("cx", 910)
     .attr("cy", function(d,i){ return 15 + i*20}) // 100 is where the first dot appears. 25 is the distance between dots
     .attr("r", 5)
     .style("fill", function(d){ return color(d)})
@@ -113,7 +113,7 @@ svg.selectAll("mylabels")
   .data(makes)
   .enter()
   .append("text")
-    .attr("x", 880)
+    .attr("x", 930)
     .attr("y", function(d,i){ return 20 + i*20}) // 100 is where the first dot appears. 25 is the distance between dots
     .style("fill", function(d){ return color(d)})
     .text(function(d){ return d})
