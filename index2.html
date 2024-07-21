@@ -63,8 +63,11 @@ svg.attr("width", 1000)
 // A function that update the chart
 function update(selectedGroup) {
 
+// Create new data with the selection?
+var dataFilter = data.map(function(d){return (d.Make == selectedGroup) ? this : null; } })
+	
 // Give these new data to update chart
-svg.select(function(d) { return (d.Make == selectedGroup) ? this : null; })
+svg.datum(dataFilter)
   .transition()
   .duration(1000)
   .attr("cx", function (d) { return x(d.AverageCityMPG); } )
