@@ -41,7 +41,7 @@ d3.csv("https://flunky.github.io/cars2017.csv", function(data) {
   // create a list of makes
   var makes = ["BMW"]
 
-  data.filter(function(d,i){ return makes.indexOf(d.Make) >= 0 })
+  var data = data.filter(function(d,i){ return makes.indexOf(d.Make) >= 0 })
 
   // create a color mapping
   var color = d3.scaleOrdinal().domain(makes)
